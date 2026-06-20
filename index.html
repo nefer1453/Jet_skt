@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKT KONTROL</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2c3e50">
+</head>
+<body>
+    <!-- ANA EKRAN (2 Butonlu Giriş) -->
+    <div class="container" id="homeScreen">
+        <header>
+            <h1>SKT KONTROL</h1>
+        </header>
+        <div class="home-buttons">
+            <button id="btnOpenWizard" class="main-btn btn-green">+ YENİ ÜRÜN GİRİŞİ</button>
+            <button id="btnOpenList" class="main-btn btn-blue">📋 LİSTEYİ GÖR</button>
+        </div>
+    </div>
+
+    <!-- HIZLI GİRİŞ SİHİRBAZI -->
+    <div class="container hidden" id="wizardScreen">
+        <div class="wizard-header">
+            <h2 id="wizardTitle">Ürün Adı</h2>
+            <button class="back-btn" onclick="goHome()">🏠 Ana Menü</button>
+        </div>
+        
+        <div class="wizard-content">
+            <!-- 1. Adım: Ürün (Akıllı Tahminli) -->
+            <div id="step-0" class="wizard-step">
+                <input type="text" id="wName" class="wizard-input" placeholder="Örn: Kasap Sucuk..." list="productHistory">
+                <datalist id="productHistory"></datalist>
+            </div>
+            
+            <!-- 2. Adım: Gün -->
+            <div id="step-1" class="wizard-step hidden">
+                <input type="number" id="wDay" class="wizard-input" placeholder="Gün (1-31)" min="1" max="31" list="daysList">
+                <datalist id="daysList">
+                    <option value="1"><option value="5"><option value="10"><option value="15"><option value="20"><option value="25"><option value="30">
+                </datalist>
+            </div>
+
+            <!-- 3. Adım: Ay -->
+            <div id="step-2" class="wizard-step hidden">
+                <input type="number" id="wMonth" class="wizard-input" placeholder="Ay (1-12)" min="1" max="12" list="monthsList">
+                <datalist id="monthsList">
+                    <option value="1"><option value="2"><option value="3"><option value="4"><option value="5"><option value="6"><option value="7"><option value="8"><option value="9"><option value="10"><option value="11"><option value="12">
+                </datalist>
+            </div>
+
+            <!-- 4. Adım: Yıl -->
+            <div id="step-3" class="wizard-step hidden">
+                <input type="number" id="wYear" class="wizard-input" placeholder="Yıl (Örn: 2026)">
+            </div>
+
+            <!-- 5. Adım: Uyarı Kategorisi (Sadece Akıllı Tespit yoksa çıkar) -->
+            <div id="step-4" class="wizard-step hidden">
+                <p class="instruction">Kaç gün kala uyarı versin?</p>
+                <div class="category-buttons">
+                    <button class="cat-btn" data-days="5">5 GÜN</button>
+                    <button class="cat-btn" data-days="10">10 GÜN</button>
+                    <button class="cat-btn" data-days="15">15 GÜN</button>
+                    <button class="cat-btn" data-days="30">30 GÜN</button>
+                </div>
+            </div>
+        </div>
+        <p class="help-text" id="helpText">İlerlemek için klavyede <strong>Enter</strong>'a bas.</p>
+    </div>
+
+    <!-- LİSTE EKRANI -->
+    <div class="container hidden" id="listScreen">
+        <div class="wizard-header">
+            <h2 style="color:#2c3e50;">Kayıtlı Ürünler</h2>
+            <button class="back-btn" onclick="goHome()">🏠 Ana Menü</button>
+        </div>
+        <main>
+            <ul id="productList"></ul>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+  
