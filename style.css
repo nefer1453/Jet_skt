@@ -1,0 +1,158 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f7f6;
+    color: #333;
+    padding: 10px;
+}
+
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    min-height: 90vh;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Header & Butonlar */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 20px;
+}
+
+header h1 {
+    color: #2c3e50;
+    font-size: 2rem;
+}
+
+.home-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.main-btn {
+    width: 100%;
+    padding: 25px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+}
+
+.btn-green { background-color: #27ae60; }
+.btn-blue { background-color: #2980b9; }
+
+.back-btn {
+    background: #7f8c8d;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Sihirbaz Ekranı */
+.wizard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 15px;
+}
+
+.wizard-header h2 {
+    color: #3498db;
+    font-size: 1.5rem;
+}
+
+.wizard-step { text-align: center; }
+
+.wizard-input {
+    width: 100%;
+    padding: 20px;
+    font-size: 1.8rem;
+    text-align: center;
+    border: 2px solid #3498db;
+    border-radius: 10px;
+    outline: none;
+}
+
+.wizard-input:focus {
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+}
+
+.category-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.cat-btn {
+    padding: 20px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: white;
+    background-color: #e67e22;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.help-text {
+    text-align: center;
+    margin-top: 30px;
+    color: #7f8c8d;
+}
+
+/* Liste Ekranı & Kırmızı Flaşör */
+#productList { list-style-type: none; }
+
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #ecf0f1;
+    border-radius: 5px;
+    border-left: 5px solid #2ecc71;
+}
+
+@keyframes flashRed {
+    0% { background-color: #fadbd8; color: #c0392b; border-left-color: #e74c3c; }
+    50% { background-color: #e74c3c; color: #fff; border-left-color: #900; }
+    100% { background-color: #fadbd8; color: #c0392b; border-left-color: #e74c3c; }
+}
+
+.product-item.danger-flash {
+    animation: flashRed 0.8s infinite;
+}
+
+.delete-btn {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+                              }
