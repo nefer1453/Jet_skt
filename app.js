@@ -142,15 +142,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const li = document.createElement('li');
             li.className = 'product-item';
 
+            // Kaç gün kaldığı bilgisini hazırlayalım
+            let statusText = `${diffDays} Gün Kaldı`;
+            if (diffDays < 0) statusText = 'TARİHİ GEÇTİ!';
+
+            // Seçilen uyarı kategorisine (5, 10, 15, 30) göre kırmızı flaşör tetikleyicisi
             if (diffDays <= product.warningCategory) {
                 li.classList.add('danger-flash');
             }
 
-            // Sadece Ürün İsmi, SKT ve Sil Butonu
+            // Sadece Ürün İsmi, Kaç Gün Kaldığı, SKT ve Sil Butonu
             li.innerHTML = `
                 <div>
                     <div style="font-size:1.5rem; font-weight:bold;">${product.name}</div>
-                    <div style="font-size:0.9rem; margin-top:5px; opacity:0.9;">SKT: ${product.date}</div>
+                    <div style="font-size:1.1rem; margin-top:5px; font-weight:bold; color:#c0392b;">${statusText}</div>
+                    <div style="font-size:0.9rem; margin-top:2px; opacity:0.9;">SKT: ${product.date}</div>
                 </div>
                 <button class="delete-btn" onclick="deleteProduct(${index})">SİL</button>
             `;
@@ -164,4 +170,4 @@ document.addEventListener('DOMContentLoaded', () => {
         renderProducts();
     };
 });
-      
+
